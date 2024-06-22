@@ -181,6 +181,9 @@
 - Jenkins
   - what is declarative pipeline 
   - how to add agents in Jenkins 
+  - what is Jenkins shared library 
+  - how to run parallel jobs in Jenkins 
+  - how to store sensitive information in Jenkins 
 - Azure Devops
   - how to add agents in Azure DevOps 
   - deployment groups in azure devops 

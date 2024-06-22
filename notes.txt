@@ -1,0 +1,83 @@
+provider "aws" {
+  region = "us-west-2"  
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0"  
+  instance_type = "t2.micro"                
+}
+
+output "public_ip" {
+  value = aws_instance.example.public_ip
+}
+
+#################
+------ tf
+
+provider null 
+resource null_reource name 
+    provisioner local-exec 
+        command = "echo ' hello world ' "
+
+------ jk
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+------ az
+
+trigger:
+- main
+
+pool 
+    name: linuxagents
+    vmImage: ubuntu 
+
+steps:
+- script: echo "hello world"
+  displayname: "print hello"
+
+
+------
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('Parallel Stage') {
+            parallel {
+                stage('Stage 1') {
+                    steps {
+                        echo 'Executing Stage 1'
+                        // Add your commands for Stage 1 here
+                    }
+                }
+                stage('Stage 2') {
+                    steps {
+                        echo 'Executing Stage 2'
+                        // Add your commands for Stage 2 here
+                    }
+                }
+                stage('Stage 3') {
+                    steps {
+                        echo 'Executing Stage 3'
+                        // Add your commands for Stage 3 here
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+	

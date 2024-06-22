@@ -1,0 +1,37 @@
+Responsibilities:
+
+Hands-on experience with AWS Services
+
+Proficiency in Serverless & Micro Service Architecture.
+
+Experience with build management and continuous integration tools and processes.
+
+Knowledge of Cloudformation and Terraform with module-based coding.
+
+Proficient with AWS  services such as IAM, VPC, EC2, RDS Databases, cloud front, ECR, ECS, EKS, lambda, Code Build, Code Commit, Cloud trail, and Cloud Watch Services
+
+Capable of creating all AWS  Resources/Services/Filters via code.
+
+Monitoring various platform capacity and health indicators and providing analytics & forecasts for added or reduced capacity as required.
+
+Hands-on experience configuring build and CI/CD management tools like  Jenkins and Github Action
+
+Proficiency in building artifacts using Maven, Gradle, npm, etc.
+
+Hands-on experience in Cloud-based Infrastructure (AWS) management, mandatory experience in the mentioned cloud.
+
+Proficiency in Docker, preferably experience with other container management tools like AWS ECS, EKS, Kubernetes, etc.
+
+Working experience with Git, GitHub,
+
+Requirements:
+
+Proven experience as a DevOps Engineer with a focus on AWS.
+
+Strong expertise in designing and implementing CI/CD pipelines using DevOps.
+
+Knowledge of security best practices and the ability to implement them in the AWS environment.
+
+Strong problem-solving skills and the ability to troubleshoot complex issues in a distributed system.
+
+Excellent communication and teamwork skills, with the ability to collaborate effectively with cross-functional teams.
