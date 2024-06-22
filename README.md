@@ -77,7 +77,6 @@
 - latest version: 1.8.5
 
 
-
 ## AWS Services 
 - Ec2
   - default storage disk 
@@ -100,7 +99,12 @@
 - vpn
 - direct connect
 - Load Balancers ( types )
-  - 4 types ( Application, Network, 
+  - 4 types
+    - Application
+    - Network 
+    - Classic
+    - Gateway LoadBalancer
+      - Choose AWS Gateway Load Balancer for easy integration with security and network tools, automatic traffic distribution, and improved performance and reliability of your applications
 - EKS 
   - storage classes ( default gp2 ebs type )
     - dose default storage class has policies like 
