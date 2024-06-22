@@ -5,12 +5,15 @@
   - from surat
   - completed graduation in 2021 
   - with 2.5+ years of experience in creating, configuring, and managing ci/cd pipelines and cloud resource 
-- why do you want to leave 
+- why do you want to leave
+- Let's say you have been given a task and that task's deadline is 7 days, but client forgot to assign access to perform the task it took 3 days to assign access and then you can start working on a task, how you will handle this situation, what are the steps you will take
+- let's say I have given you a task to create infrastructure for an application, what are the questions you will ask me regarding the task?
+- 
 
 
 ## Kubernetes:
 - what is Kubernetes and why 
-- what is dis advantage of Kubernetes 
+- what is disadvantage of Kubernetes 
 - prepare architecture 
 - replicasets and replication controller 
 - pod and deployment 
