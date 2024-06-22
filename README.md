@@ -21,10 +21,19 @@
 - what is the ingress, why ingress 
 - what is cluster-issuer 
 - pvc and pv
+  - pvc autoscaler 
+  - what are different accessmode in PVC
+	- ReadWriteOnce, ReadWriteMany, ReadOnlyMany, ReadWriteOncePod
+	- difference between ReadWriteOncePod and ReadWriteOnce
+  - what are different reclain policies pvc
+    - Retain, Delete, Recycle
+  - what are the differnt Phase of pv
+    - Available, Bound, Released, Failed
 - what is storage class 
 - what is kube proxy 
 - what does API server 
 - static pods 
+  - schedule a pod on specific node without scheduler 
 - RBAC 
 - hpa, vpa
 - keda 
@@ -34,6 +43,8 @@
 - metal lb 
 - default port of k8s 
 - network policy in Kubernetes 
+  - ingress and egress 
+  - 
 - shield secrets 
 - request limit 
 - types of services 
@@ -88,12 +99,18 @@
 - net gateway 
 - vpn
 - direct connect
-- Load Balancers ( typs )
+- Load Balancers ( types )
+  - 4 types ( Application, Network, 
 - EKS 
-  - storage classes ( gp2 )
+  - storage classes ( default gp2 ebs type )
+    - dose default storage class has policies like 
   - eksctl
   - which iam roles are required to run eks cluster 
+  - Default network plugin in eks is "VPC CNI"
+  - what are differnet options of network plugin for eks 
 - Lemda ( max run time 15 min ) 
+- different storage services 
+  - ebs, efs, 
 - s3 
   - policy 
   - CLI 
@@ -118,6 +135,8 @@
 
 ## Azure Services 
 - AKS
+  - what are differnet options of network plugin for 
+  - default network plugin 
 - ACR
 - VMSS
 - Front Door 
