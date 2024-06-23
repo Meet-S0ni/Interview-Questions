@@ -13,6 +13,11 @@
 ## Kubernetes:
 - what is Kubernetes and why 
 - what is disadvantage of Kubernetes 
+  - learning curve
+  - initial setup
+  - security challanges
+  - you can not roll back kubernetes version
+  - you have to containarized your application
 - prepare architecture 
 - replicasets and replication controller 
 - pod and deployment 
@@ -63,10 +68,14 @@
 - what are providers 
 - what are provisioners 
 - what is the disadvantage of terraform 
+  - there is no error hendaling 
+  - we have to use hcl 
+  - vender locking, if you have terraform code moving from terraform to another iac is very difficult 
+  - state file has sensitive data in plain text
 - API as code 
 - use case of null resource 
 - what are different data types in terraform 
-- difference between for each and count 
+- difference between for-each and count 
 - how to create multi-region aws resource 
   - provider region alias 
 - terraform best practices 
@@ -103,6 +112,26 @@
   - `prevent_destroy` is critical for protecting important resources.
   - `ignore_changes` is handy for ignoring external or non-critical changes.
   - `replace_triggered_by` ensures resources are recreated when dependent attributes change.
+- difference between ansible and terraform
+  - if your infrastructure is like evolving over time like installation of new softwares, upgrade activities than ansible excels in that 
+  - but if you want to provision complex infrastrastructure than terraform is best
+  - so choice of iac tool should be based on specific requirement
+- let's say there are 20 resource deployed using terraform and they are running so i want to delete only 1 or 2 resource how to do that in terraform 
+  - command :  terraform destroy -target=<resource>.<name>
+- what is module
+  - it is package of multiple resources that we can reuse
+- what are different kinds of modules
+  - root module, 
+    - The root module is the main working directory where we runs terraform commands 
+  - child module
+    - child module are modules that called by root modules
+  - publish module
+    - we can publish any module to terraform registry and call in our root module is called published module
+- let's say you want to get public ip for ec2 instance from output how to get that 
+- terraform workspaces
+  - it stores different state files and configurations files
+  - terraform workspace select <workspace-name>
+
 
 
 - https://developer.hashicorp.com/terraform/tutorials/state/resource-drift
