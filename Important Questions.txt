@@ -1,0 +1,56 @@
+Basic Linux Topics
+
+    1. What & why is Linux
+    2. Linux Installation
+    3. Basic Linux command for day to day use
+    4. Files and Directory permission & How it works
+    5. Package concepts
+    6. Storage concepts - SAN / NAS
+    7. Disk Management - Partition
+    8. Nfs server
+    9. Web Server - Apache http
+
+Basics of Networking
+
+    1. What is Network and how it works
+    2. Concepts of Varios Protocol - telnet, ssh, dhcp, smtp etc.
+    3. IP Addressing and Subnetting
+    4. Concepts of VLAN
+    5. Concepts of ACL
+    6. Concepts of NAT
+    7. Concepts of VPN
+
+Docker
+
+    1.  Docker
+    2.  Docker Architecture
+    3.  Container Lifecycle
+    4.  Docker CLI
+    5.  Port Binding
+    6.  Deteched and Forground Mode
+    7.  Docker File
+    8.  Docker file insructions
+    9.  Docker Images
+    10. Docker registory
+    11. Container Storage
+    12. Volumes
+
+Kubernetes Administration
+
+    1.  Understanding Kubernetes Architecture
+    2.  Introduction to Kubernetes
+    3.  Managing the kubernetes cluster
+    4.  Working with Namespaces and Pods
+    5.  Scheduling Pods
+    6.  Application Lifecycle Management
+    7.  Logging and Monitoring
+    8.  Application Lifecycle Management
+    9.  Cluster Build, Manage & Maintainence
+    10. Security and Authantication
+    11. Managing Data in the Kubernetes Cluster
+    12. Storage and Volumes
+    13. DNS Networking, Core DNS and CNI
+    14. Troubleshooting: Application Failers, Control Panel Failers, and Network Failers
+    15. Kubernetes Scheduling's
+    16. Troubleshooting in kubernetes
+    

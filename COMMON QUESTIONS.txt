@@ -1,0 +1,372 @@
+
+---------------------------------------
+        QUESTIONS AND ANSWERS
+---------------------------------------
+
+
+1. what is the use of FSTAB file?  OR what we will do to make mount point persistant?
+
+   -> If we want to mount any filesystem or partition permenently then we will put entry into fstab file.
+      there are 6 field in fstab file.
+	1. Device Name
+	2. Mount point
+	3. type of filesystem
+	4. mount options
+	5. dummping
+	6. check sequence of filesystem (fsck)
+	
+2. If you are getting any error or to check log which file you check?
+
+   -> I will check "/var/log/messages" file and also check with "dmesg" command for specific error or keyword
+	
+3. what is udevd or udev ? 
+ 
+   -> udev daemon is responsible for creating and removing entry from /dev file.
+      e.g lets say we have created one partition so related file is getting created
+	  inside /dev by udev daemon. 
+      and when we delete/remove the partition or device it will remove entry from /dev.
+   
+4. what is daemon?
+ 
+   Daemon is nothing but the "system Process" also called as service, 
+   which generally runs in background.
+   e.g. for ftp server daemon name is vsftpd, for ssh daemon is sshd, 
+   for cron job daemon name is crond etc.
+   
+5. How to create filesystem or partitions?
+ 
+	- 1st of all, I will create the partition using "fdsik" command e.g. fdisk /dev/sdb
+	- Once partition is created, i will assign the filesystem by using mkfs.ext4 or mkfs.xfs
+	- then i will create the mount point using mkdir command e.g. mkdir /data
+	- finally, i will mount the filesystem using "mount" command 
+	  e.g. mount <Device Name> <mount point> and to make it persistant
+	  i will add entry into fstab file.
+	  
+6. What is major and minor Number? OR How Linux identify the device?
+ 
+	Major Number:
+	- All devices controlled by the same device driver have a common major device number. 
+	  The major number is actually the offset into the kernel’s device driver table, which tells 
+	  the kernel what kind of device it is. Each character and Block driver that registered 
+	  with kernel has associated MAJOR number. 
+	  There are total 256 [0-255] major number for character and block driver respectively.
+													OR
+	- Major number represent the actual device driver for block devices
+	
+	Minor Number:
+	- The minor number tells the kernel special characteristics of the device to be accessed. 
+	The minor number of the device node that represents the whole disk is 0. Minor Number is device “instance”. 
+	The minor number is not used by kernel they are used by the driver only.
+													OR
+	- Minor number is partition of connection with block devices
+
+ Reference URL:
+ https://unix.stackexchange.com/questions/73988/linux-major-and-minor-device-numbers
+ 
+7. What is Hard Link and Soft Link?
+
+ 
+    Soft link is like a shortcut file, when we create a soft link it will assgin different inode to link file.
+	whereas hardlink is like a backup file, when we create hard link, it will assign the same inode number to link file.
+	soft link we can create between or across filesystem ( partition ) where as hardlink we can not.
+	When we delete orignal file, then softlink will not be useful where as hard link we have data as its a (minor copy)copy/backup file.
+
+    Reference url
+    https://ostechnix.com/explaining-soft-link-and-hard-link-in-linux-with-examples/
+    https://superuser.com/questions/364993/what-is-the-typical-real-use-case-or-application-of-symbolic-hard-links-in-linux
+   
+   
+   
+8. use case of "rysnc", grep, AWK, sed, find, netstat, telnet, ssh, ping, traceroute/tracert, dd,dmesg command
+ 
+	rsync:
+			Rsync or Remote Sync, is a free command-line tool that lets you transfer files and directories
+			to local and remote destination. Rsync is used for mirroring ,performing backups or 
+			migrating data to other servers.
+
+	grep: 
+                  [Globle rregular expression print]
+			The grep command is a filter that is used to search for lines matching a specified pattern and
+			print the matching lines to standard output.
+
+	awk:
+
+			Awk is mostly used for pattern scanning and processing.
+			It searches one or more files to see if they contain lines that matches with 
+			the specified patterns and then perform the associated actions.
+
+			In order to tell awk to use that file for its program, you type: awk -f source-file input-file1 input-file2 … 
+			The -f instructs the awk utility to get the awk program from 
+			the file source-file (see Command-Line Options). Any filename can be used for source-file .
+			
+			Unix provides sed and awk as two text processing utilities that work on a line-by-line basis. 
+			The sed program (stream editor) works well with character-based processing, 
+			and the awk program (Aho, Weinberger, Kernighan) works well with delimited field processing.
+
+	sed:
+
+			"sed" is a useful text processing feature of GNU/Linux. The full form of `sed` is Stream Editor. 
+			Many types of simple and complicated text processing tasks can be done 
+			very easily by using `sed` command. Any particular string in a text or a file can be searched, 
+			replaced and deleted by using regular expression with `sed command. But 
+			this commands performs all types of modification temporarily and the original file content is not 
+			changed by default. The user can store the modified content into another file if needs.
+
+	find:
+
+			The find command is used to search and locate the list of files and directories 
+			based on conditions you specify for files that match the arguments. 
+			find command can be used in a variety of conditions like you can find files by permissions, 
+			users, groups, file types, date, size, and other possible criteria
+
+	netset:
+
+			Netstat is a command line utility for Linux that prints network connections, 
+			routing tables, interface statistics, masquerade connections, and multicast memberships. 
+			Netstat can be used to diagnose network issues and service problems.
+
+	telnet:
+
+			In Linux, the telnet command is used to create a remote connection with 
+			a system over a TCP (transmission control protocol)/IP network.
+			It allows us to administrate other systems by the terminal. 
+			We can run a program to conduct administration. It uses a TELNET protocol.
+
+	ssh:
+		
+			ssh stands for “Secure Shell”. It is a protocol used to securely connect to a 
+			remote server/system. ssh is secure in the sense that it transfers the data in encrypted 
+			form between the host and the client. It transfers inputs from 
+			the client to the host and relays back the output.
+
+	ping:
+		
+			The ping command is a Command Prompt command used to test the ability of the source 
+			computer to reach a specified destination computer. 
+			It's usually used as a simple way to verify that a computer can communicate over 
+			the network with another computer or network device.
+
+	traceroute/tracert:
+
+			Traceroute is a network diagnostic tool used to track in real-time 
+			the pathway taken by a packet on an IP network from source to destination, 
+			reporting the IP addresses of all the routers it pinged in between. 
+			Traceroute also records the time taken for each hop the packet makes during its route to the destination.
+
+	dd:
+			dd is a command-line utility for Unix and Unix-like operating systems whose 
+			primary purpose is to convert and copy files. On Unix, device drivers for hardware 
+			(such as hard disk drives) and special device files (such as /dev/zero and /dev/random) 
+			appear in the file system just like normal files.
+
+	dmesg:
+			dmesg command also called as “driver message” or “display message” is used to examine 
+			the kernel ring buffer and print the message buffer of kernel. The output of 
+			this command contains the messages produced by the device drivers.
+
+			dmesg reads the messages generated by the kernel from the /proc/kmsg virtual file. 
+			This file provides an interface to the kernel ring buffer and can be opened only by one process. 
+			If syslog process is running on your system and you try to read the file with cat , 
+			or less , the command will hang.
+
+
+	https://phoenixnap.com/kb/rsync-command-linux-examples
+
+9. use of Important file "/etc/fstab", "/var/log/messages", /etc/sudoers
+
+		The /etc/fstab file is one of the most important files in a Linux-based system, 
+		since it stores static information about filesystems, their mountpoints and mount options. 
+		In this tutorial we will learn to know its structure in details, 
+		and the syntax we can use to specify each entry in the file.
+
+		/var/log/messages – Contains global system messages, including the messages that are 
+		logged during system startup. There are several things that are logged in 
+		/var/log/messages including mail, cron, daemon, kern, auth, etc. a) /var/log/auth. ... 
+		Using wtmp you can find out who is logged into the system.
+
+		The /etc/sudoers file controls who can run what commands as what users on 
+		what machines and can also control special things such as whether you need a password for particular commands. 
+		The file is composed of aliases (basically variables) and user specifications (which control who can run what).
+   
+10. what is logrotation in linux?
+
+		logrotate is designed to ease administration of system that generate large number og log files.
+		it allows automatic rotation, compration, removel and mailing of log files. 
+		each log file may be handled daily, weekly, monthly  or when it grows too large 
+		normally logrotate is rum as a daily cron job.
+
+11. How dose logrotation works in linux?
+
+		The logrotate program is log file manager. it is used to regularly rotate log files 
+		by removing the oldest ones frim your system and creating new log files. it may be 
+		used to rotate based on the age of the file or the file size, and usually runs automatically
+		through the cron utility.
+
+12. What is ftp server?
+
+		FTP server is a software Application , that is used the file transfer protocol
+		to share the files over the internet between cliant and host machine,
+		Here we have two machines,the end user , which islocal host machine and a destination,
+		which is remote host.
+
+13. What is nfs server
+
+		Network file sharing (NFS) is a protocol that allows you to 
+		share directories and files (storage) with other linux cliants ovr network.
+		User add files to them, which are than shared with other users who have access to folder.
+   
+14. what is rsyslog?
+
+		rsyslog is capable of forwording logs to remote servers the configuration is relatively
+		smiple and makes it possible for linux admins to centralize log files for archiving and troubleshooting.
+
+15. what is crontab?
+
+		crontab is  a unix utility tat allows tasks to be automatically run in the background
+		at regular intervals by the crond demon.
+
+16. what is yum server?
+
+		The yellowingdog updater, modifier(YUM) is open-sourse
+		command line package mannage ment utility for linux operating system using the
+		rpm package manager 
+		Yum allows automatic updates, packages and dependancy 
+		management on rpm based distributions
+
+17. what is job automation?
+
+		JOb automation is a feature that allows a user to submit a 
+		command or progrm for execution at a specified time in the future
+		Automation and task sceduling in linux is done with demon called crontab and at
+
+18.
+		suid : SET USER ID
+		sgid : SET GROUP ID
+		sticky bit 
+
+		suid 
+			the setuid is a permission bit that allows the user
+			to execute a program with the permissionof owner
+			
+			#chmode u+s <filename>  // adding the symbolic mode//
+			#chmode u-s <filename>  // removing symbolic//
+			#chmode 4766 <filename> // adding numeric//
+			#chmode 766 <filename>  // removing numaric//
+
+		exmample
+
+			[root@localhost permissions]# chmod 4644(or u+s) file1
+			[root@localhost permissions]# ll
+			total 0
+				-rwSr--r--. 1 root root 0 Nov  5 20:45 file1
+			[root@localhost permissions]# chmod 644(or u-set) file1
+			[root@localhost permissions]# ll
+			total 0
+				-rw-r--r--. 1 root root 0 Nov  5 20:45 file1
+
+			[ctrl + Alt + F2 # to go in command mode in linux]
+
+		#which passwd
+		/usr/bin/passwd  [ only for bin dir]
+		#which su 
+			/usr/bin/su  [ only for bin dir]
+
+		[
+			find permossions command
+				# find / -perm -4000
+
+		]
+
+		SGID :
+
+			-The setgid (set group id) is a permission bit ,that allows the user
+			to execute a program with the permission of its group owner.
+
+			-Setgid on a directory means that file created in the directory 
+			inherate their group ownership from the directory, rahter than creatinng user.
+			
+			chmod g+s <directory_name> // for adding in symbolic mode //
+			chmod g-s <directory_name> // for removing in symbolic mode //
+			chmod 2766 <directory_name> // for adding in numaric mode //
+			chmod 766 <directory_name> // for removing in numaric mode //
+
+		find sgid available permission [ Serch sgid]
+			# find / -perm -2000 #
+
+			## to create new user and give password ##
+					useradd <username> ; passwd <username>
+
+			## To create new group ##
+					groupadd <groupName> 
+
+			## check available groups ##
+					/etc/group where group is file
+					cmd # cat /etc/group
+
+		* To add user into group, the command is 
+			usermod -aG <groupName> <username>
+
+		* change group in file or dir
+			chown <ownerName>:<groupName> <path or fileName>
+
+		add sgid to user
+			chmod 2775 /all [all is directory]
+
+		2775 = sgid owner[rwx] group[rwx] other[r_x]
+
+		## 
+			create two users 
+			create one group
+			create one directory 
+			add users in groups
+			assign group to directory
+			change permissions of directory to 2775
+
+			now login with user1 and create 1 directory and 1 file 
+			now login with user2 and create 1 directory and 1 file 
+
+			modify user1's file while login from user2 
+			modify user2's file while login from user1
+
+		*STICKEY BIT
+			
+			-If the stickey bit is enabled on any directory , than directory 
+			content can be deleted by its owner or root.
+
+			#chmod +t <directory_name>    //for adding in symbolic mode // 
+			#chmod -t <directory_name>    //for removing in symbolic mode // 
+			#chmod 1766 <directory_name>  //for adding in numaric mode  //
+			#chmod 766 <directory_name>   //for removing in numaric mode  //
+
+		# Search sticky bit command
+			find / -type d -perm -1000
+
+
+19.     ==> project's successful commands :
+
+		---	--------------------- ---
+
+			docker network create -d bridge wpsite
+			docker volume create db_data 
+
+			docker container run -dit --name db
+			 -v db_data:/var/lib/mysql 
+			 -e MYSQL_ROOT_PASSWORD=password 
+			 -e MYSQL_DATABASE=wordpress 
+			 -e MYSQL_USER=wordpress 
+			 -e MYSQL_PASSWORD=wordpress 
+			 --network wpsite 
+			 mysql:5.7
+
+			docker container run -dit --name wordpress 
+			-v /docker/:/var/www/html 
+			-e  WORDPRESS_DB_HOST=db:3306 
+			-e WORDPRESS_DB_USER=wordpress 
+			-e WORDPRESS_DB_PASSWORD=wordpress 
+			--network wpsite 
+			-p 8000:80 
+			wordpress:latest
+
+		---	--------------------- ---
+
+20. 

@@ -1,0 +1,119 @@
+Q-1 what is docker?
+    
+    - docker is a containerization software by which we can create containers
+      for our application.
+
+    Explain Docker Architecture
+
+    - docker Architecture majorly contains three components
+      docker client or docker cli
+      docker daemon 
+      docker registory
+
+    - when user executes docker commands like docker run the docker client will
+      send request to docker daemon 
+    - after that to run our container docker daemon will first check the image on
+      local repository if image is available than, it will run container from it
+      if image is not available on  system than 
+    - it will pull image from docker's public remote repository docker hub
+      and run container
+    - we can also pull image from privet repository 
+
+    what is container
+    
+    - A container is a software package that contains everything 
+      the software needs to run. 
+      This includes the executable program as well 
+      binaries, libraries, and settings.
+
+    - 
+        
+    What is virtual Machines
+
+    -
+
+    What is containerization
+
+    - containerization is a technology in which we are packaging binaries and libries to run our application
+      
+
+    What is virtualization
+
+    - virtualization is a technology by which we can create multiple virtual machines in single physical machine.  
+
+    what is difference between containerization and virtualization
+
+    - in virtualization we are creating compleate virtual machine which has it's own virtual kernel, os and hardare
+      but in containerization we are only virtualizing os
+
+    what is docker image
+
+    - Docker images are one kind of blue print for creating docker containers.
+      
+
+    What is docker hub
+
+    - docker hub is a remote repository to store docker images 
+
+    What is DockerFile
+
+    - Dockerfile is a text file that contains the instruction to 
+
+    what is docker engine
+    what is network in docker
+    what is volume in docker how to create it.
+
+    - 
+
+    Where the docker volumes are stored?
+    how to mount any directory inside container
+    
+    - we can mount directory by using this command
+      docker run --name=<name-of-container> -v <directory-on-host>:<directory-inside-container> <image>
+        
+
+
+
+    what in environments (environment variables) in docker 
+    what are different types of networks available in docker
+    What is docker swarm
+    tell me something about docker compose
+    how to check container's IP address
+    how to bind a port to a container
+    how to enter into container  
+    - we can enter using "docker commit" command or "docker exec" command 
+
+    how to list running containers
+    - we can list running containers using "docker ps" command
+    
+    how to list all containers running and stoped
+    - we ca list all containers using "docker ps -a" command
+
+    how to create docker container from docker image
+    - we can run container using "docker run" command
+      "#docker run --name=web <options> nginx"
+    
+    how to run container in deteched mode
+    what is meaning of running container in deteched mode
+    how to login to docker repository
+    - we can login using "docker login" command
+    
+    how to upload and download docker images
+    how to create docker image
+    How to run container
+    how to create network in docker
+    how to create volume in docker
+    how to check docekr's version
+    Why kubernetes removed support for docker
+    how to start, stop, kill containers
+    how to delete an image from the local storage system
+    how to delete container
+    how to delete running container
+    how to build docker image from docker file 
+    Will you lose your data, when a docker container exits
+    what is difference between docker and kubernetes
+    Can a container restart by itself?
+    what are main drawbacks of docker
+    
+
+

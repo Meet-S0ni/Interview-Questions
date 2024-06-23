@@ -8,7 +8,6 @@
 - why do you want to leave
 - Let's say you have been given a task and that task's deadline is 7 days, but client forgot to assign access to perform the task it took 3 days to assign access and then you can start working on a task, how you will handle this situation, what are the steps you will take
 - let's say I have given you a task to create infrastructure for an application, what are the questions you will ask me regarding the task?
-- 
 
 
 ## Kubernetes:
@@ -41,15 +40,17 @@
 - pod and node affinity 
 - node selectors 
 - metal lb 
-- default port of k8s 
+- default port of k8s 6443 
 - network policy in Kubernetes 
   - ingress and egress 
-  - 
+  - specify 
 - shield secrets 
 - request limit 
+- max surge 
 - types of services 
 - current version: 1.29
 - latest version: 1.30
+- what are the majour feature of kubernetes
 
 
 ## Terraform
@@ -75,6 +76,37 @@
   - Configuring terraform.rc (or .terraformrc) default parallesim
 - current terraform version: 1.6 
 - latest version: 1.8.5
+- which components you have created using terraform 
+  - resource group, virtual network,subnet,aks cluster, node-pools, acr, kubernetes manifests deployment, helm
+  - authanticated using service principle ( app registration )
+  - using azurerm, kubernetes, helm,
+- terraform command to store output 
+  - terraform plan -out file.plan
+  - terraform plan --no-colour > file.plan
+- what is syntext of terraform import command 
+- HCL full form 
+  - Hashicorp configuration language 
+- what are the majour features of terraform  
+  - terraform can manage infrastructure on multiple cloud platforms 
+  - terraform uses a language called hcl which is human readable configuration language that helps you to write infrastructure code quickly 
+  - terraform also manages after deployment and help to maintain states 
+  - we can also version control our code to safely collabrate on our infrasture 
+- what is terraform validate command 
+  - this command used to validate the syntext of the terraform file, it will check all files in directory and display error if any issue found, it will not check formatting like tabs and spaces 
+  - if provider or module declered multiple times than it checks like this 
+- how to write comment in terraform 
+  - using #  
+- can you tell me what is lifecycle in terraform 
+  - Terraform, the lifecycle block is used within a resource to define special behaviors for managing the resource's lifecycle.
+  - The `lifecycle` block is optional but powerful for managing resource behavior.
+  - `create_before_destroy` is useful for minimizing downtime.
+  - `prevent_destroy` is critical for protecting important resources.
+  - `ignore_changes` is handy for ignoring external or non-critical changes.
+  - `replace_triggered_by` ensures resources are recreated when dependent attributes change.
+
+
+- https://developer.hashicorp.com/terraform/tutorials/state/resource-drift
+- https://www.youtube.com/watch?v=t9bHZMFxQYY&ab_channel=LogicOpsLab
 
 
 ## AWS Services 
@@ -90,8 +122,9 @@
   - difference role, policy, user
 - Security groups
 - Autoscaling groups
-  - launch templet 
-  - 
+  - autoscaling group 
+  - launch configurations
+  - scaling policy  
 - route table 
   - subnet association 
 - internet gateway 
@@ -146,6 +179,7 @@
 - Front Door 
 - CDN
 - Cosmodb (multi-region write configuration ) 
+- Different types of LoadBalancer Service
 - Traffic Manager 
   - health check 
   - priority
@@ -160,13 +194,11 @@
 - different types of database services 
 - WAF 
 
-
 ## Git GitHub
 - what is pull request 
 - git pull and fetch 
 - git clone 
 - git rebase and merge 
-- 
 
 
 ## Docker
@@ -179,6 +211,7 @@
 - how to change default path of docker 
 - different types of networks 
 - different types of storage drivers 
+- what are the majour feature of docker
 
 
 ## CICD 
@@ -211,6 +244,13 @@
 - grep command 
   - -v for exclude
   - multiple in grep 
+- Booting process
+- sed command
+- find command
+- grep command
+- awk command
+- netstat
+- protocoals
 
 ## Ansible
 - what is default path for hosts 
@@ -223,7 +263,7 @@
 - promql 
 - elk configuration, efk configuration 
 - created custom dashboards 
-- 
+
 
 ## Other tools 
 - airflow, statsd exporter 

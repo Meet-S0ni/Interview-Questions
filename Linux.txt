@@ -1,0 +1,192 @@
+Q.  What is linux
+      - Linux is open sources operating system based on Unix. 
+        it was introduced by Linus torwords to provide free and low-cost operating system 
+        to the peoples who can not afford operating system like windows, macs etc. 
+  
+    Why we use Linux
+      - linux makes very efficiant use of the system's resources..
+        linux can runs on a range of hardware, right from supercomputers to watches
+        it is highly secure 
+              highly scalable
+              ease of use 
+              ease of maintainence
+              runs on any hardware
+              free
+              opensource
+              customisation
+        it has strong community
+
+    what do you understand by root user/account
+    Explain Lilo
+    what is swap space
+    what is operating system 
+    what is difference between Linux and Unix
+    what is linux kernel?, Is it leagal to edit linux kernel
+    what is Lilo
+    what are the basic components of linux
+    what are inode and process Id
+
+    FILE system
+    what is /dev directory
+    what is /var directory
+    what is /etc directory
+    what is /usr directory
+    
+    what is udav 
+    what is demon 
+    how to change directory in linux
+    how to list contents in directory
+    how to list hidden files in directory
+    different options used with ls command
+    how to list contents in directory sorted by time
+    how to list contents in directory sorted by time in decending order
+    how to check currently loged in users
+    uptime ( create question from it )
+    how to see system information in linux ( uname -a )
+    what is absolute path 
+    what is relative path
+    how to create file, empty file, directory
+    how to remove empty directory
+    how to remove file, directory
+    how to create multiple files
+    how to create multiple directoris inside a directories
+    how to copy file 
+    how to copy directory 
+    how to move file or directory
+    how to rename file or directory
+    what is vi or vim editor 
+    what are different modes in vi editor
+    how to go at startng of file in vi editor
+    how to go at end of file in vi editor
+    how to go to the begining of line in vi editor
+    how to go to the end of line in vi editor
+    how to copy line in vi editor
+    how to past line in vi editor
+    how to delete line in vi editor
+    how to append at the end of line in vi editor
+    how to insert at begining of line in vi editor
+    how to insert a new line below the courser position
+    how to insert a new line above the courser position
+    how to set the line number to the file in vi editor
+    what is soft link
+    what is hard link
+    differnce between soft link and hard link
+    what is Grep command
+    what is head command
+    what is tail command
+    what is awk command
+    what is sed command
+    what is more/less command
+    what is find command
+    
+    what is rpm
+
+    - rpm is redhat package manager by which we can install, update, qureying and remove pachages 
+      in redhat based linux
+
+    what is packages in linux
+
+    - packages is one kind of compressed of file or programs for any Application
+
+    what is yum
+    how to check installed packages
+    how to install any package with rpm
+    how to uninstall any package with rpm
+    how to install any package with yum
+    how to uninstall any package with yum
+    how to see the configuration files of the installed package
+    how to see the directory with which a package is associated
+    what is the location of yum repository
+    
+    what are three catagories/types of users can have access to file or directory
+    Explain different file permissions
+    explain spetial permissions
+    what is setuid
+    what is sgid
+    what is sticky bit
+    how to change access permission
+        ( symbolic, numaric )
+    how to change ownership of file or directory
+    how to change group of file or directory
+    what is umask
+
+    how to add user
+    how to assign password to user
+    how to add user in group
+    how to create group
+    what is sudo command
+    what is /etc/sudors file
+    how to allow user to use sudo command
+
+    what is partition
+
+      - partition is a method of dividing a single hard drive in to many logical drives
+    
+    how to create partition
+    what is primary partition
+    *** file system *****
+    how to assign file system
+    how to mount any device or partition
+    what is soft mount and hard mount
+    what are different sections in /etc/fstab file
+    how to check mounted devices to directory
+
+    what is nfs
+        - nfs is a networking protocol that allowes sharing file over the networks
+
+    why we use nfs
+    how to check exported directories at client side
+    what is default port for nfs 2049
+    what is pnfs
+
+    what is job scheduling
+    how to schedule any job/ what are the differnet ways to schedule any task/job
+    what are the different sections in cronteb file
+    what is cron.allow file
+    what is cron.deny file
+    how to list cron jobs 
+    how to list cron jobs for perticular user
+
+    how to append in any file
+    what is microservices
+    how to terminate any running process in linux
+    how to check that command is successfully executed or not
+    how to identify the which shell you are using
+    
+    what is default location of mysql database
+
+    booting process
+
+    protocoals 
+    port numbers
+
+    what is web/apache server
+
+    what is IP address
+    what is subnet
+    what is subnetmask
+    what is VLAN
+    what is ACL
+    what is NAT
+    what is VPN
+
+
+
+    ----------
+    lsblk
+    ----------
+
+Q. What is network policy ?
+   - Network policy is like a firewall network policies are an application-centric constrain which 
+     allows you ti specify how a pod is allowed to communicate with various network entities over network
+
+Q. Why we use it?     
+   - 
+
+   
+
+
+
+
+
+

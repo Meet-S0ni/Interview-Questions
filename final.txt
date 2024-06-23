@@ -1,0 +1,1291 @@
+----------------------------
+    KUBERNETES QUESTIONS
+----------------------------
+
+Q-01 What is Kubernetes?
+
+     - Kubernetes is a container orchestration tool that used for managing, monitoring, scaling and
+       deploying containerized application.
+     - It has features like 
+         high availability means zero down time
+         scalability
+         self healing
+         AutoScaling
+         load balancing
+         Automated Rollouts and Rollbacks
+         Secret and configuration Management
+         Storage orchestration
+     - kubernetes is an opensource orchestration tool that was developed by google for managing microservices or 
+       containerized application across a distributed cluster of nodes
+
+Q-02 Explain Kubernetes Architecture  
+
+     - Kubernetes works on Master Worker Architecture
+       Master has components like 
+         Kubernetes api-server 
+         Control manager
+         etcd
+         Scheduler 
+         cloud controller manager
+       and Worker has components like 
+         container run time 
+         kubelet
+         kubeproxy
+
+Q-03 What is Kubernetes api-server
+
+      - the api (application program "interface" ) server determines if request is valid and
+        then process it. 
+        The api is also the interface that used to manage, create, and configure kubernetes cluster. 
+        It's how the users, external components, and parts of your cluster all communicate
+        with each other.
+
+      - kubernetes api server is a master node component by which users, external components,
+        and all parts of your cluster is able to communicates with each other.
+
+Q-04 What is kube-controller-manager in kubernetes
+
+      - The kubernetes controller manager is a demon that embades the core control loops
+        shipped with kubernetes. In kubernetes the controller is a conntrol loops that watches 
+        the shared state of the cluster through the apiserver and makes changes attempting to 
+        move the current state towords the desired state.
+ 
+      - controller manager is a daemon used for garbage collection , core control loops and namespaces
+        it enables the running of more than one process on master node
+
+      - controller manager manages controllers like 
+          - node controllers
+          - replication controllers 
+          - replicasets 
+          - endpoint controller
+          - service account and token Controller etc.
+
+Q-05 What is etcd in kubernetes
+
+      - etcd stores all cluster's data in distributed key-value form 
+        it stores like 
+            which pod is running on which node
+            how many pods and nods are active and running
+            how much resources available in every node
+
+Q-06 What is scheduler in kubernetes
+
+      - The Kubernetes scheduler is a control plane process which assigns Pods to Nodes.
+        The scheduler determines which Nodes are valid placements for each Pod
+        scheduler checks etcd before assigning pod to the node
+
+Q-07 What is container run-time in kubernetes
+
+      - A container runtime, also known as container engine, 
+        is a software component that can run containers on a host operating system.
+      
+      - Kubernetes does not actually handle the process of running containers on a machine.
+        Instead, it relies on another piece of software called a container runtime
+
+      - A container runtime is a software designed for the purpose of running containers. 
+        To enable pods to run inside nodes, you need to install a container runtime. 
+
+      - to run and manage a container lifecycle we need a container run time on a worker node
+
+Q-08 What is kubelet
+
+      - The kubelet is the primary "node agent" that runs on each node.
+        Kubelet is the technology that applies, updates, 
+        and destroys containers on a Kubernetes node.
+
+      - The kubelet takes a set of PodSpecs that are provided through various mechanisms and 
+        ensures that the containers described in those PodSpecs are running and healthy. 
+        The kubelet doesn't manage containers which were not created by Kubernetes.
+
+      - kubelet is a service agent which controles and maintains group of pods by checking pod 
+        specification using kubernetes,
+        the kubelet runs on each node it allows to communicate between master node and slave nodes
+
+Q-09 What is kubeproxy
+
+      - kube-proxy is a network proxy that runs on each node in your cluster
+        kube-proxy maintains network rules on nodes.
+        These network rules allow network communication to
+        your Pods from network sessions inside or outside of your cluster.
+
+Q-10 what is pod in kubernetes
+
+      - pod is abstraction layer of container 
+        pod are the smallest, most basic deployable objects in kubernetes
+        Pods can contain one or more containers, such as Docker containers.
+
+Q-11 what is Replication Controller in kubernetes
+
+      - replication controller is a one kind of kubernetes resource,
+        it ensures that a specified number of pod replicas are running as desired state 
+        it uses equallity based selector 
+
+Q-11 what is ReplicaSet in kubernetes
+
+      - replicaSet is a one kind of kubernetes resource, 
+        replicaSet is updated version of replication controller
+        that maintains desired state of pod replicas
+        it uses both equallity and set based selectors
+
+Q-11 what is Deployment in kubernetes
+
+      - deployment is one kind of kubernetes resources
+        that maintains replicaset keeps running 
+
+Q-12 What is Secrets in kubernetes
+
+     - A secret is a kubernetes resource that stores confidintial data like user id and passwords 
+       it stores data in key value form, in encripted
+
+Q-13 What is Services in kubernetes
+
+     - An abstract way to expose an application running on a set of Pods as a network service.
+  	   type of services :
+        	1 ) Cluster IP
+        	2 ) NodePort
+        	3 ) Load Balancer
+         	4 ) Head Less Service
+
+Q-14 What is ConfigMaps in kubernetes
+
+     - A ConfigMap is an API object used to store non-confidential data in key-value pairs. 
+       Pods can consume ConfigMaps as environment variables, command-line arguments, 
+       or as configuration files in a volume. 
+
+Q-15 What is Service Accounts in kubernetes
+
+     - A service account provides an identity for processes that run in a Pod. 
+
+Q-16 What is Persistant Volume
+
+     - A persistent volume is a storage unit that is controlled by the administrator. 
+       It is used to manage an individual pod in a cluster. 
+
+Q-17 What is Persistant Volume Claims
+
+     - The full form of PVC stands for Persistent Volume Claim. It is storage requested by Kubernetes for pods.
+       The user does not require to know the underlying provisioning. This claim should be created in 
+       the same namespace where the pod is created.
+     - A PersistentVolumeClaim (PVC) is a request for storage by a user. It is similar to a Pod. 
+       Pods consume node resources and PVCs consume PV ..
+
+Q-18 What is Statefull Set
+
+     - The stateful set is a workload API object that is used to manage the stateful application. It can also 
+       be used to manage the deployments and scaling the sets of pods. The state information and 
+       other data of stateful pods are store in the disk storage, which connects with stateful set.
+
+Q-19 what is ingress controller 
+
+     - kubernetes ingress is an api object that provides routing rules to manage external users' 
+       access to the services in the kubernetes cluster, tipically via https and http ,
+       with you can easyly setup rules for routing traffic without creating a bunch of load balancer or 
+       exposing each service on the Nodes
+
+    What is Ingress 
+    
+    - ingress is api object that provides routing rules to manage external users access to the     
+
+Q-20 what is helm charts
+
+     - Kubernetes Helm is a package manager for Kubernetes
+       It makes it possible to organize Kubernetes objects in a packaged application that anyone can download and
+       install in one click, or configure to their specific needs. In Helm, 
+       these packages are called charts (similar to debs or rpms). 
+
+     - Helm chart is a collection of all your versioned, 
+       pre-configured application resources which can be deployed as one unit.
+
+     - the helm chart is a collection of kubernetes yaml files
+       of kubernetes resources 
+      
+Q-21 What is NameSpace in kubernetes
+
+     - in kubernetes namespaces we divide single cluster into multiple virtual clusters
+     - kubernetes namespace allows different teams, projects, or customers to share a same
+       kubernetes cluster
+     - namespace also allows cluster's workloads to organise them
+     
+Q-22 What is Labels
+
+     - Labels are key/value pairs that are attached to objects, such as pods.
+       labels are essential tools for querying filtering and searching kubernetes objects
+
+Q-23 What is Selector
+
+     - Via a label selector, the client/user can identify a set of objects. 
+       The label selector is the core grouping primitive in Kubernetes.
+
+Q-24 What are the types of selectors
+
+     - There are two types of selectors
+        - equality based selector
+        - set based selector
+
+Q-25 What is meaning of equallity based selector 
+     - this allows filtering by key and value, where matching objects shoulld setisfy all the specified labels
+       
+Q-26 What is meaning of set based selector
+     - this allow filtering keys accourding to set of values
+      
+Q-27 What is meaning of cluster
+     - cluster is a combination of multiple nodes, where nodes are physical or virtual machines or on cloud
+
+Q-28 What is kubectl
+
+     - kubectl is a command line tool by which we can interect with kubernetes cluster 
+       by kubectl we can interect to all kind off clusters like cloud based or baremetal
+
+Q-29 What is meaning of Multitire Architecture
+
+     - multitire architecture means to divide single large application into multiple small applications/layers
+       which is called microservices
+
+Q-30 What is environment variables
+
+     - environment variables is a key-value pair which is entrypoint to run our containerized application 
+       example mysql database require atleast database root password to run it's container
+
+Q-31 what are the types of volumes 
+
+     - there are two types of volumes 
+       - efimaral volume 
+       - persistant volume
+
+Q-32 what are the Different types of Services
+
+     - there are basic three types of services 
+       - ClusterIP
+       - NodePort
+       - Loadbalancer
+     - and other is headless service
+
+Q-33 what is ClusterIP Service
+
+     - clusterip is a default service in kubernetes 
+       by clusterip our application can only accessible within the cluster
+       application can not be accessible from outside the cluster
+
+Q-34 what is NodePort Service
+     - nodeport is a service which allows us to access application via external port of a node
+      
+Q-35 what is Load balancer Service
+
+     - a load balancer is a service which allows us to attach external load balancer to our cluster
+     - expose the service externally using a cloud providers load balancer
+
+#Q-36 What is head less services
+
+Q-37 What is difference between configMaps and Secrets
+
+     - configMap used to inject configuration file in to pod it stores data in plain text fromet
+     - secrect stores sensitive data in encrypected key value pairs 
+
+Q-38 What is meaning of rolling Updates
+
+     - Rolling updates allow Deployments' update to take place with zero 
+       downtime by incrementally updating Pods instances with new ones
+
+Q-39 What are the different storage access modes in PV/PVC
+
+     - Read Only Many
+     - Read Write Once
+     - Read Write Many
+
+Q-40 What is meaning of static storage and dynamic storage
+Q-41 what is reclaim policy in Persistant volumes / types of reclaim policies
+
+     - reclaim policy for persistant volume tells the cluster what to do with volume after it's has 
+       been released of it's claim
+
+     - there are three types of reclaim policies 
+        1. retained
+        2. recycled
+        3. deleled
+
+Q-42 How to deploy pod in k8s
+
+     - we can deploy pod using two methods 
+       - first using kubernetes cli and ( kubectl run <pod-name> --image=<image-name> ) 
+       - second using kubernetes menifast file ( kubectl apply -f <pod-menifastFile.yaml> )
+
+Q-43 How to launch a Deployment
+
+     - we can deploy pod using two methods 
+       first using kubernetes cli and (kubectl create deployment <dep-name> --image=<image> <other options> ) 
+       second using kubernetes menifast file (kubectl apply -f <dep-yaml-file>)
+
+Q-44 How to see how many pods are running in k8s
+     - by using "kubectl get pods command"
+
+Q-45 how to check pod's Ip address
+     - by using "kubectl describe pod <pod name>" or by "kubect get pod -o wide"
+
+Q-46 how to check which pod is running on which node
+     - by using "kubectl get pods -o wide
+                "kubectl get pod <pod name> -o wide
+
+Q-47 What is kind in k8s yaml file ( kubernetes menifastation file)
+     - by assigning kind in k8s 
+     - by kind we can determine what kind of kubernetes resource you want to create
+
+Q-48 How to expose any resources
+     - we can expose by below command
+       #kubectl expose <resource> <resource-name> --port=<port> --type=<type-of-service>
+       #kubectl expose deployment myd --port=80 --type=NodePort 
+     
+Q-49 how to remove labels from pod
+     - we can remove label using below command
+       #kubectl label <resources> <resource-name> <label-name> -
+       #kubectl label pod web1 <label-key> -
+
+Q-50 how to change label of pod
+     - first remove label from any pod
+       and after that attach label to any pod
+
+Q-51 how to scale (up/down) deployment, pod, replicaset, replication Controller
+     - we can scale by using two method
+       1. using cli below is example
+          #kubectl scale deployment myd replicas=5
+       2. we can change in resurces.spec.replicas in yaml file
+
+Q-52 how to see more details about resources  ( describe )
+     - we can see more details about resource using below command
+       #kubectl describe <resource> <resource-name>
+       #kubectl describe pod <web>
+
+Q-53 how to roll back to previous version 
+     - using "kubectl rollout undo" command
+     
+Q-54 what are different types of authorization methods we uses
+     - there three types of authorization methods
+       1. Id and password based authorization
+       2. key based authorization
+       3. certificate based authorization
+
+Q-55 which preferd authorization method used in kubernetes
+     - in kubernetes we uses certificate base authorization
+
+Q-56 What is CSR certificate signing request
+     - csr is a request that is generated by user to get access on any server
+       csr signed by server host and sent back to user as a crt form
+
+Q-57 how to assign different resources and permission to user in kubernetes cluster
+     - first from user side generate csr request after that sign that request from server(master) side
+       generate role on master in that role define different resources and permissions
+       after that bind that role to the user  
+       
+Q-58 what is Node in kubernetes
+     - in kubernetes node is a 
+    
+Q-59 what is cloud controll manager
+     - You can use the cloud controller manager to link a kubernetes cluster to the api of cloud provider
+
+Q-60 How do I assign pod to a specific node
+     - we can use nodeSelector in pod's configuration yaml file to assign pod to a specific node
+
+Q-61 what is nodeSelector
+        node Isoletion/restriction
+          - node isolation/restriction is a technique to isolate specific node 
+            or group of nodes from cluster in which specific pods runs with 
+            isoleted, secured environment.            
+
+Q-62 affinity and antiaffinity
+
+     - affinity allows the allocation of pods on nodes
+     - while anti-affinity releases the pod that are running on the node based on the constraints 
+
+Q-63 What is node affinity 
+     
+     - Node affinity is a set of rules used by scheduler to determine where a pod can be scheduled to it
+       
+Q-64 what is taint and toleration
+
+     - this kubernetes featur allows users to mark a node so that no pod can be scheduled to it
+       unless a pod explicitly tolerates the taint
+     - when you taint node , it is automatically excluded frm pod scheduling 
+     - a taint can produce three possible effects:
+     - NoSchedule - the kubernetes scheduler will only allow scheduling pod that hav tolaration for the tained nodes
+     - PreFerSchedule - The kubernetes scheduler will only allow scheduling pods that have tolerations for the tained nodes
+     - NoExecute - kubernetes will evict the running pods from the nodes if pods don't have toleration for the tainted nodes.
+        
+Q-65 what is static pod
+     
+     - static pods are created and managed by kubelet daemon on a 
+       specific node without API server and scheduler
+     - If the static pod crashes, kubelet restarts them 
+     - Control plane is not involved in lifecycle of static them  
+     
+Q-66 what is Daemonset
+
+     - A daemonset ensures that all (or some) Nodes run a copy of pod.
+     - As nodes are added to the cluster, pods are addes to them
+     - As nodes are plane is not involved in lifecycle of static pod 
+
+
+Q-67 how to deploy application using helm
+     - we can deploy application using 
+       "helm install <chart-name> <chart-location>"
+
+Q-68 how to update application usibg helm
+     - we ca use command
+       "helm upgraade <chart name> <chart-location>"
+
+Q-69 how to rollback our application using helm
+     - we can use command
+       "helm rollback <chart-name> <verion number>
+       
+Q-70 how to create helm charts
+Q-71 how to deploy application using helm replication
+Q-72 what is helm registory
+     - helm registory is helm's remote registry from where we can upload our helm cahrts 
+       and other peoples around the
+
+     - at a high level, a chart repository is a location where packaged charts can be stored and 
+       shred   
+
+Q-73 what is use of coreDNS in kubernetes
+Q-74 why we need kubernetes
+
+     - Let's say we have created one container using Docker
+     - now if that container dies than we need to manualy recreate that container 
+       with kubernetes we can solve that problem
+     - now due to client's traffic we need to scale our 0application to 100 containers
+       in docker we need to manually create that 
+       but with kubernetes we can easily do that with just one command
+     - so in conclution docker has some limitations 
+       and kubernetes eleminites that limitation
+     
+--------------------------
+     
+#NOTES
+
+  set update stratagies to Rolling Updates
+  YAML : yet another markup language
+  base64 encripted
+  Which version of kubernetes you are using
+  v1.23
+   
+  Drain  ( kubectl drain node <node name> )
+    - corden
+    - eviction
+
+---------------------------
+
+difference between san and nas
+
+
+--------------------------------
+        DOCKER QUESTIONS
+--------------------------------
+
+Q-1 what is docker?
+    
+    - docker is a containerization software by which we can create containers
+      for our application.
+
+Q   Explain Docker Architecture
+
+    - docker Architecture majorly contains three components
+      docker client or docker cli
+      docker daemon 
+      docker registory
+
+    - when user executes docker commands like docker run the docker client will
+      send request to docker daemon 
+    - after that to run our container docker daemon will first check the image on
+      local repository if image is available than, it will run container from it
+      if image is not available on  system than 
+    - it will pull image from docker's public remote repository docker hub
+      and run container
+    - we can also pull image from privet repository 
+
+Q   what is container
+    
+    - A container is a software package that contains everything 
+      the software needs to run. 
+      This includes the executable program as well 
+      binaries, libraries, and settings.
+
+    What is virtual Machines
+    What is containerization
+    - containerization is a technology in which we are packaging binaries and libries to run our application
+      
+    What is virtualization
+    - virtualization is a technology by which we can create multiple virtual machines in single physical machine.  
+
+    what is difference between containerization and virtualization
+    - in virtualization we are creating compleate virtual machine which has it's own virtual kernel, os and hardare
+      but in containerization we are only virtualizing os
+
+    what is docker image
+    - Docker images are one kind of blue print for creating docker containers.
+    
+    What is docker hub
+    - docker hub is a remote repository to store docker images 
+
+    What is DockerFile
+    - Dockerfile is a text file that contains the instruction to 
+
+    what is docker engine
+    what is network in docker
+    what is volume in docker how to create it.
+    Where the docker volumes are stored?
+    how to mount any directory inside container
+    - we can mount directory by using this command
+      docker run --name=<name-of-container> -v <directory-on-host>:<directory-inside-container> <image>
+        
+    what in environments (environment variables) in docker 
+    what are different types of networks available in docker
+    What is docker swarm
+    tell me something about docker compose
+    how to check container's IP address
+    how to bind a port to a container
+
+    how to enter into container  
+    - we can enter using "docker commit" command or "docker exec" command 
+
+    how to list running containers
+    - we can list running containers using "docker ps" command
+    
+    how to list all containers running and stoped
+    - we ca list all containers using "docker ps -a" command
+
+    how to create docker container from docker image
+    - we can run container using "docker run" command
+      "#docker run --name=web <options> nginx"
+    
+    how to run container in deteched mode
+    what is meaning of running container in deteched mode
+
+    how to login to docker repository
+    - we can login using "docker login" command
+    
+    how to upload and download docker images
+    how to create docker image
+    How to run container
+    how to create network in docker
+    how to create volume in docker
+    how to check docekr's version
+    Why kubernetes removed support for docker
+    how to start, stop, kill containers
+    how to delete an image from the local storage system
+    how to delete container
+    how to delete running container
+    how to build docker image from docker file 
+    Will you lose your data, when a docker container exits
+    what is difference between docker and kubernetes
+    Can a container restart by itself?
+    what are main drawbacks of docker
+    
+--------------------------------------
+                LINUX
+--------------------------------------
+
+Q.  What is linux
+      - Linux is open sources operating system based on Unix. 
+        it was introduced by Linus torwords to provide free and low-cost operating system 
+        to the peoples who can not afford operating system like windows, macs etc. 
+  
+    Why we use Linux
+      - linux makes very efficiant use of the system's resources..
+        linux can runs on a range of hardware, right from supercomputers to watches
+        it is highly secure 
+              highly scalable
+              ease of use 
+              ease of maintainence
+              runs on any hardware
+              free
+              opensource
+              customisation
+        it has strong community
+
+    what do you understand by root user/account
+    Explain Lilo
+    what is swap space
+    what is operating system 
+    what is difference between Linux and Unix
+    what is linux kernel?, Is it leagal to edit linux kernel
+    what is Lilo
+    what are the basic components of linux
+    what are inode and process Id
+
+    FILE system
+    what is /dev directory
+    what is /var directory
+    what is /etc directory
+    what is /usr directory
+    
+    what is udav 
+    what is demon 
+    how to change directory in linux
+    how to list contents in directory
+    how to list hidden files in directory
+    different options used with ls command
+    how to list contents in directory sorted by time
+    how to list contents in directory sorted by time in decending order
+    how to check currently loged in users
+    uptime ( create question from it )
+    how to see system information in linux ( uname -a )
+    what is absolute path 
+    what is relative path
+    how to create file, empty file, directory
+    how to remove empty directory
+    how to remove file, directory
+    how to create multiple files
+    how to create multiple directoris inside a directories
+    how to copy file 
+    how to copy directory 
+    how to move file or directory
+    how to rename file or directory
+    what is vi or vim editor 
+    what are different modes in vi editor
+    how to go at startng of file in vi editor
+    how to go at end of file in vi editor
+    how to go to the begining of line in vi editor
+    how to go to the end of line in vi editor
+    how to copy line in vi editor
+    how to past line in vi editor
+    how to delete line in vi editor
+    how to append at the end of line in vi editor
+    how to insert at begining of line in vi editor
+    how to insert a new line below the courser position
+    how to insert a new line above the courser position
+    how to set the line number to the file in vi editor
+    what is soft link
+    what is hard link
+    differnce between soft link and hard link
+    what is Grep command
+    what is head command
+    what is tail command
+    what is awk command
+    what is sed command
+    what is more/less command
+    what is find command
+    
+    what is rpm
+
+    - rpm is redhat package manager by which we can install, update, qureying and remove pachages 
+      in redhat based linux
+
+    what is packages in linux
+
+    - packages is one kind of compressed of file or programs for any Application
+
+    what is yum
+    how to check installed packages
+    how to install any package with rpm
+    how to uninstall any package with rpm
+    how to install any package with yum
+    how to uninstall any package with yum
+    how to see the configuration files of the installed package
+    how to see the directory with which a package is associated
+    what is the location of yum repository
+    
+    what are three catagories/types of users can have access to file or directory
+    Explain different file permissions
+    explain spetial permissions
+    what is setuid
+    what is sgid
+    what is sticky bit
+    how to change access permission
+        ( symbolic, numaric )
+    how to change ownership of file or directory
+    how to change group of file or directory
+    what is umask
+
+    how to add user
+    how to assign password to user
+    how to add user in group
+    how to create group
+    what is sudo command
+    what is /etc/sudors file
+    how to allow user to use sudo command
+
+    what is partition
+
+      - partition is a method of dividing a single hard drive in to many logical drives
+    
+    how to create partition
+    what is primary partition
+    *** file system *****
+    how to assign file system
+    how to mount any device or partition
+    what is soft mount and hard mount
+    what are different sections in /etc/fstab file
+    how to check mounted devices to directory
+
+    what is nfs
+        - nfs is a networking protocol that allowes sharing file over the networks
+
+    why we use nfs
+    how to check exported directories at client side
+    what is default port for nfs 2049
+    what is pnfs
+
+    what is job scheduling
+    how to schedule any job/ what are the differnet ways to schedule any task/job
+    what are the different sections in cronteb file
+    what is cron.allow file
+    what is cron.deny file
+    how to list cron jobs 
+    how to list cron jobs for perticular user
+
+    how to append in any file
+    what is microservices
+    how to terminate any running process in linux
+    how to check that command is successfully executed or not
+    how to identify the which shell you are using
+    
+    what is default location of mysql database
+
+    booting process
+
+    protocoals 
+    port numbers
+
+    what is web/apache server
+
+    what is IP address
+    what is subnet
+    what is subnetmask
+    what is VLAN
+    what is ACL
+    what is NAT
+    what is VPN
+
+    ----------
+    lsblk
+    ----------
+
+Q. What is network policy ?
+   - Network policy is like a firewall network policies are an application-centric constrain which 
+     allows you ti specify how a pod is allowed to communicate with various network entities over network
+
+Q. Why we use it?     
+
+------------------------------------
+            GENERAL
+------------------------------------
+
+Q-1 Tell me about your self
+    why should we hire you
+    why you want to change your branch
+    why you want to work in IT company
+    why you didn't choose computer before
+    why you choose Mechanical
+    Where do you see your self in 5 years
+
+
+    what was your project
+    what was you role in your project
+    what is your hobby
+    
+
+    what is Devops
+    what you know about Devops
+    what do you  know about our company
+
+    if i want to deploy containerized website that how do i do that
+
+    - Package a sample web application into a Docker image.
+    - Upload the Docker image to Artifact Registry.
+    - Create a Kubernetes cluster.
+    - Deploy the sample app to the cluster.
+    - Manage autoscaling for the deployment.
+    - Expose the sample app to the internet.
+    - Deploy a new version of the sample app.
+
+
+---------------------------------------
+        QUESTIONS AND ANSWERS
+---------------------------------------
+
+
+1. what is the use of FSTAB file?  OR what we will do to make mount point persistant?
+
+   -> If we want to mount any filesystem or partition permenently then we will put entry into fstab file.
+      there are 6 field in fstab file.
+	1. Device Name
+	2. Mount point
+	3. type of filesystem
+	4. mount options
+	5. dummping
+	6. check sequence of filesystem (fsck)
+	
+2. If you are getting any error or to check log which file you check?
+
+   -> I will check "/var/log/messages" file and also check with "dmesg" command for specific error or keyword
+	
+3. what is udevd or udev ? 
+ 
+   -> udev daemon is responsible for creating and removing entry from /dev file.
+      e.g lets say we have created one partition so related file is getting created
+	  inside /dev by udev daemon. 
+      and when we delete/remove the partition or device it will remove entry from /dev.
+   
+4. what is daemon?
+ 
+   Daemon is nothing but the "system Process" also called as service, 
+   which generally runs in background.
+   e.g. for ftp server daemon name is vsftpd, for ssh daemon is sshd, 
+   for cron job daemon name is crond etc.
+   
+5. How to create filesystem or partitions?
+ 
+	- 1st of all, I will create the partition using "fdsik" command e.g. fdisk /dev/sdb
+	- Once partition is created, i will assign the filesystem by using mkfs.ext4 or mkfs.xfs
+	- then i will create the mount point using mkdir command e.g. mkdir /data
+	- finally, i will mount the filesystem using "mount" command 
+	  e.g. mount <Device Name> <mount point> and to make it persistant
+	  i will add entry into fstab file.
+	  
+6. What is major and minor Number? OR How Linux identify the device?
+ 
+	Major Number:
+	- All devices controlled by the same device driver have a common major device number. 
+	  The major number is actually the offset into the kernel’s device driver table, which tells 
+	  the kernel what kind of device it is. Each character and Block driver that registered 
+	  with kernel has associated MAJOR number. 
+	  There are total 256 [0-255] major number for character and block driver respectively.
+													OR
+	- Major number represent the actual device driver for block devices
+	
+	Minor Number:
+	- The minor number tells the kernel special characteristics of the device to be accessed. 
+	The minor number of the device node that represents the whole disk is 0. Minor Number is device “instance”. 
+	The minor number is not used by kernel they are used by the driver only.
+													OR
+	- Minor number is partition of connection with block devices
+
+ Reference URL:
+ https://unix.stackexchange.com/questions/73988/linux-major-and-minor-device-numbers
+ 
+7. What is Hard Link and Soft Link?
+
+ 
+    Soft link is like a shortcut file, when we create a soft link it will assgin different inode to link file.
+	whereas hardlink is like a backup file, when we create hard link, it will assign the same inode number to link file.
+	soft link we can create between or across filesystem ( partition ) where as hardlink we can not.
+	When we delete orignal file, then softlink will not be useful where as hard link we have data as its a (minor copy)copy/backup file.
+
+    Reference url
+    https://ostechnix.com/explaining-soft-link-and-hard-link-in-linux-with-examples/
+    https://superuser.com/questions/364993/what-is-the-typical-real-use-case-or-application-of-symbolic-hard-links-in-linux
+   
+   
+   
+8. use case of "rysnc", grep, AWK, sed, find, netstat, telnet, ssh, ping, traceroute/tracert, dd,dmesg command
+ 
+	rsync:
+			Rsync or Remote Sync, is a free command-line tool that lets you transfer files and directories
+			to local and remote destination. Rsync is used for mirroring ,performing backups or 
+			migrating data to other servers.
+
+	grep: 
+                  [Globle rregular expression print]
+			The grep command is a filter that is used to search for lines matching a specified pattern and
+			print the matching lines to standard output.
+
+	awk:
+
+			Awk is mostly used for pattern scanning and processing.
+			It searches one or more files to see if they contain lines that matches with 
+			the specified patterns and then perform the associated actions.
+
+			In order to tell awk to use that file for its program, you type: awk -f source-file input-file1 input-file2 … 
+			The -f instructs the awk utility to get the awk program from 
+			the file source-file (see Command-Line Options). Any filename can be used for source-file .
+			
+			Unix provides sed and awk as two text processing utilities that work on a line-by-line basis. 
+			The sed program (stream editor) works well with character-based processing, 
+			and the awk program (Aho, Weinberger, Kernighan) works well with delimited field processing.
+
+	sed:
+
+			"sed" is a useful text processing feature of GNU/Linux. The full form of `sed` is Stream Editor. 
+			Many types of simple and complicated text processing tasks can be done 
+			very easily by using `sed` command. Any particular string in a text or a file can be searched, 
+			replaced and deleted by using regular expression with `sed command. But 
+			this commands performs all types of modification temporarily and the original file content is not 
+			changed by default. The user can store the modified content into another file if needs.
+
+	find:
+
+			The find command is used to search and locate the list of files and directories 
+			based on conditions you specify for files that match the arguments. 
+			find command can be used in a variety of conditions like you can find files by permissions, 
+			users, groups, file types, date, size, and other possible criteria
+
+	netset:
+
+			Netstat is a command line utility for Linux that prints network connections, 
+			routing tables, interface statistics, masquerade connections, and multicast memberships. 
+			Netstat can be used to diagnose network issues and service problems.
+
+	telnet:
+
+			In Linux, the telnet command is used to create a remote connection with 
+			a system over a TCP (transmission control protocol)/IP network.
+			It allows us to administrate other systems by the terminal. 
+			We can run a program to conduct administration. It uses a TELNET protocol.
+
+	ssh:
+		
+			ssh stands for “Secure Shell”. It is a protocol used to securely connect to a 
+			remote server/system. ssh is secure in the sense that it transfers the data in encrypted 
+			form between the host and the client. It transfers inputs from 
+			the client to the host and relays back the output.
+
+	ping:
+		
+			The ping command is a Command Prompt command used to test the ability of the source 
+			computer to reach a specified destination computer. 
+			It's usually used as a simple way to verify that a computer can communicate over 
+			the network with another computer or network device.
+
+	traceroute/tracert:
+
+			Traceroute is a network diagnostic tool used to track in real-time 
+			the pathway taken by a packet on an IP network from source to destination, 
+			reporting the IP addresses of all the routers it pinged in between. 
+			Traceroute also records the time taken for each hop the packet makes during its route to the destination.
+
+	dd:
+			dd is a command-line utility for Unix and Unix-like operating systems whose 
+			primary purpose is to convert and copy files. On Unix, device drivers for hardware 
+			(such as hard disk drives) and special device files (such as /dev/zero and /dev/random) 
+			appear in the file system just like normal files.
+
+	dmesg:
+			dmesg command also called as “driver message” or “display message” is used to examine 
+			the kernel ring buffer and print the message buffer of kernel. The output of 
+			this command contains the messages produced by the device drivers.
+
+			dmesg reads the messages generated by the kernel from the /proc/kmsg virtual file. 
+			This file provides an interface to the kernel ring buffer and can be opened only by one process. 
+			If syslog process is running on your system and you try to read the file with cat , 
+			or less , the command will hang.
+
+
+	https://phoenixnap.com/kb/rsync-command-linux-examples
+
+9. use of Important file "/etc/fstab", "/var/log/messages", /etc/sudoers
+
+		The /etc/fstab file is one of the most important files in a Linux-based system, 
+		since it stores static information about filesystems, their mountpoints and mount options. 
+		In this tutorial we will learn to know its structure in details, 
+		and the syntax we can use to specify each entry in the file.
+
+		/var/log/messages – Contains global system messages, including the messages that are 
+		logged during system startup. There are several things that are logged in 
+		/var/log/messages including mail, cron, daemon, kern, auth, etc. a) /var/log/auth. ... 
+		Using wtmp you can find out who is logged into the system.
+
+		The /etc/sudoers file controls who can run what commands as what users on 
+		what machines and can also control special things such as whether you need a password for particular commands. 
+		The file is composed of aliases (basically variables) and user specifications (which control who can run what).
+   
+10. what is logrotation in linux?
+
+		logrotate is designed to ease administration of system that generate large number og log files.
+		it allows automatic rotation, compration, removel and mailing of log files. 
+		each log file may be handled daily, weekly, monthly  or when it grows too large 
+		normally logrotate is rum as a daily cron job.
+
+11. How dose logrotation works in linux?
+
+		The logrotate program is log file manager. it is used to regularly rotate log files 
+		by removing the oldest ones frim your system and creating new log files. it may be 
+		used to rotate based on the age of the file or the file size, and usually runs automatically
+		through the cron utility.
+
+12. What is ftp server?
+
+		FTP server is a software Application , that is used the file transfer protocol
+		to share the files over the internet between cliant and host machine,
+		Here we have two machines,the end user , which islocal host machine and a destination,
+		which is remote host.
+
+13. What is nfs server
+
+		Network file sharing (NFS) is a protocol that allows you to 
+		share directories and files (storage) with other linux cliants ovr network.
+		User add files to them, which are than shared with other users who have access to folder.
+   
+14. what is rsyslog?
+
+		rsyslog is capable of forwording logs to remote servers the configuration is relatively
+		smiple and makes it possible for linux admins to centralize log files for archiving and troubleshooting.
+
+15. what is crontab?
+
+		crontab is  a unix utility tat allows tasks to be automatically run in the background
+		at regular intervals by the crond demon.
+
+16. what is yum server?
+
+		The yellowingdog updater, modifier(YUM) is open-sourse
+		command line package mannage ment utility for linux operating system using the
+		rpm package manager 
+		Yum allows automatic updates, packages and dependancy 
+		management on rpm based distributions
+
+17. what is job automation?
+
+		JOb automation is a feature that allows a user to submit a 
+		command or progrm for execution at a specified time in the future
+		Automation and task sceduling in linux is done with demon called crontab and at
+
+18.
+		suid : SET USER ID
+		sgid : SET GROUP ID
+		sticky bit 
+
+		suid 
+			the setuid is a permission bit that allows the user
+			to execute a program with the permissionof owner
+			
+			#chmode u+s <filename>  // adding the symbolic mode//
+			#chmode u-s <filename>  // removing symbolic//
+			#chmode 4766 <filename> // adding numeric//
+			#chmode 766 <filename>  // removing numaric//
+
+		exmample
+
+			[root@localhost permissions]# chmod 4644(or u+s) file1
+			[root@localhost permissions]# ll
+			total 0
+				-rwSr--r--. 1 root root 0 Nov  5 20:45 file1
+			[root@localhost permissions]# chmod 644(or u-set) file1
+			[root@localhost permissions]# ll
+			total 0
+				-rw-r--r--. 1 root root 0 Nov  5 20:45 file1
+
+			[ctrl + Alt + F2 # to go in command mode in linux]
+
+		#which passwd
+		/usr/bin/passwd  [ only for bin dir]
+		#which su 
+			/usr/bin/su  [ only for bin dir]
+
+		[
+			find permossions command
+				# find / -perm -4000
+
+		]
+
+		SGID :
+
+			-The setgid (set group id) is a permission bit ,that allows the user
+			to execute a program with the permission of its group owner.
+
+			-Setgid on a directory means that file created in the directory 
+			inherate their group ownership from the directory, rahter than creatinng user.
+			
+			chmod g+s <directory_name> // for adding in symbolic mode //
+			chmod g-s <directory_name> // for removing in symbolic mode //
+			chmod 2766 <directory_name> // for adding in numaric mode //
+			chmod 766 <directory_name> // for removing in numaric mode //
+
+		find sgid available permission [ Serch sgid]
+			# find / -perm -2000 #
+
+			## to create new user and give password ##
+					useradd <username> ; passwd <username>
+
+			## To create new group ##
+					groupadd <groupName> 
+
+			## check available groups ##
+					/etc/group where group is file
+					cmd # cat /etc/group
+
+		* To add user into group, the command is 
+			usermod -aG <groupName> <username>
+
+		* change group in file or dir
+			chown <ownerName>:<groupName> <path or fileName>
+
+		add sgid to user
+			chmod 2775 /all [all is directory]
+
+		2775 = sgid owner[rwx] group[rwx] other[r_x]
+
+		## 
+			create two users 
+			create one group
+			create one directory 
+			add users in groups
+			assign group to directory
+			change permissions of directory to 2775
+
+			now login with user1 and create 1 directory and 1 file 
+			now login with user2 and create 1 directory and 1 file 
+
+			modify user1's file while login from user2 
+			modify user2's file while login from user1
+
+		*STICKEY BIT
+			
+			-If the stickey bit is enabled on any directory , than directory 
+			content can be deleted by its owner or root.
+
+			#chmod +t <directory_name>    //for adding in symbolic mode // 
+			#chmod -t <directory_name>    //for removing in symbolic mode // 
+			#chmod 1766 <directory_name>  //for adding in numaric mode  //
+			#chmod 766 <directory_name>   //for removing in numaric mode  //
+
+		# Search sticky bit command
+			find / -type d -perm -1000
+
+
+19.     ==> project's successful commands :
+
+		----------------------------
+
+			docker network create -d bridge wpsite
+			docker volume create db_data 
+
+			docker container run -dit --name db
+			 -v db_data:/var/lib/mysql 
+			 -e MYSQL_ROOT_PASSWORD=password 
+			 -e MYSQL_DATABASE=wordpress 
+			 -e MYSQL_USER=wordpress 
+			 -e MYSQL_PASSWORD=wordpress 
+			 --network wpsite 
+			 mysql:5.7
+
+			docker container run -dit --name wordpress 
+			-v /docker/:/var/www/html 
+			-e  WORDPRESS_DB_HOST=db:3306 
+			-e WORDPRESS_DB_USER=wordpress 
+			-e WORDPRESS_DB_PASSWORD=wordpress 
+			--network wpsite 
+			-p 8000:80 
+			wordpress:latest
+
+----------------------------------- 
+        Basic Linux Topics
+-----------------------------------
+
+
+Q.  What & why is Linux
+     - Linux is open sources operating system based on Unix. 
+       it was introduced by Linus torwords to provide free and low-cost operating system 
+       to the peoples who can not afford operating system like windows, macs etc. 
+
+    Why we use Linux
+    - linux makes very efficiant use of the system's resources..
+      linux can runs on a range of hardware, right from supercomputers to watches
+      it is highly secure 
+            highly scalable
+            ease of use 
+            ease of maintainence
+            runs on any hardware
+            free
+            opensource
+            customisation
+      it has strong community
+
+Q.  Linux Installation steps
+    
+     -  Download the distribution of your choice
+        Create a live CD or live USB drive
+        Boot from the installation media
+        follow the on-screen instructions
+        create an account
+        create partition 
+        finish the installation and reboot
+
+Q.  Basic Linux command for day to day use
+
+Q.  Files and Directory permission & How it works
+
+    -  When we create any file or directory that time system/kernel assignes same permissions 
+       which is defined using umask value
+       umask will deside what should be the default permission of the file or directory
+       there are three kind of permissions to access any file or directory 
+       read, write and execute that is assign on three catagory of users 
+       owner, group  and others we can change permission using chmod commnd 
+
+       [
+           there are two kind of owners of file/directory
+           user and group
+           we can change owners by chown and chgroup command
+       ]
+
+Q.  Package concepts
+
+    - what is rpm
+
+Q.  Storage concepts
+Q.  Disk Management
+Q.  concept of VLAN
+
+    - VLAN stands for virtual local area network 
+      a VLAN is a local area network where the computers, servers and others network devices
+      can logically connected reguardless of their physical location 
+
+----------------------------------
+----------------------------------
+              IMP
+----------------------------------
+----------------------------------
+
+
+Basic Linux Topics
+
+    1. What & why is Linux
+    2. Linux Installation
+    3. Basic Linux command for day to day use
+    4. Files and Directory permission & How it works
+    5. Package concepts
+    6. Storage concepts - SAN / NAS
+    7. Disk Management - Partition
+    8. Nfs server
+    9. Web Server - Apache http
+
+Basics of Networking
+
+    1. What is Network and how it works
+    2. Concepts of Varios Protocol - telnet, ssh, dhcp, smtp etc.
+    3. IP Addressing and Subnetting
+    4. Concepts of VLAN
+    5. Concepts of ACL
+    6. Concepts of NAT
+    7. Concepts of VPN
+
+Docker
+
+    1.  Docker
+    2.  Docker Architecture
+    3.  Container Lifecycle
+    4.  Docker CLI
+    5.  Port Binding
+    6.  Deteched and Forground Mode
+    7.  Docker File
+    8.  Docker file insructions
+    9.  Docker Images
+    10. Docker registory
+    11. Container Storage
+    12. Volumes
+
+Kubernetes Administration
+
+    1.  Understanding Kubernetes Architecture
+    2.  Introduction to Kubernetes
+    3.  Managing the kubernetes cluster
+    4.  Working with Namespaces and Pods
+    5.  Scheduling Pods
+    6.  Application Lifecycle Management
+    7.  Logging and Monitoring
+    8.  Application Lifecycle Management
+    9.  Cluster Build, Manage & Maintainence
+    10. Security and Authantication
+    11. Managing Data in the Kubernetes Cluster
+    12. Storage and Volumes
+    13. DNS Networking, Core DNS and CNI
+    14. Troubleshooting: Application Failers, Control Panel Failers, and Network Failers
+    15. Kubernetes Scheduling's
+    16. Troubleshooting in kubernetes 

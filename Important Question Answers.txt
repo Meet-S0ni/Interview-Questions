@@ -1,0 +1,64 @@
+Basic Linux Topics
+
+Q.  What & why is Linux
+     - Linux is open sources operating system based on Unix. 
+       it was introduced by Linus torwords to provide free and low-cost operating system 
+       to the peoples who can not afford operating system like windows, macs etc. 
+
+    Why we use Linux
+    - linux makes very efficiant use of the system's resources..
+      linux can runs on a range of hardware, right from supercomputers to watches
+      it is highly secure 
+            highly scalable
+            ease of use 
+            ease of maintainence
+            runs on any hardware
+            free
+            opensource
+            customisation
+      it has strong community
+
+Q.  Linux Installation steps
+    
+     -  Download the distribution of your choice
+        Create a live CD or live USB drive
+        Boot from the installation media
+        follow the on-screen instructions
+        create an account
+        create partition 
+        finish the installation and reboot
+
+Q.  Basic Linux command for day to day use
+
+    -   
+
+Q.  Files and Directory permission & How it works
+
+    -  When we create any file or directory that time system/kernel assignes same permissions 
+       which is defined using umask value
+       umask will deside what should be the default permission of the file or directory
+       there are three kind of permissions to access any file or directory 
+       read, write and execute that is assign on three catagory of users 
+       owner, group  and others we can change permission using chmod commnd 
+
+       [
+           there are two kind of owners of file/directory
+           user and group
+           we can change owners by chown and chgroup command
+       ]
+
+Q.  Package concepts
+
+    - what is rpm
+
+Q.  Storage concepts
+Q.  Disk Management
+
+
+Q.  concept of VLAN
+
+    - VLAN stands for virtual local area network 
+      a VLAN is a local area network where the computers, servers and others network devices
+      can logically connected reguardless of their physical location 
+
+
