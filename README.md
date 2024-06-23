@@ -74,6 +74,7 @@
   - we have to use hcl 
   - vender locking, if you have terraform code moving from terraform to another iac is very difficult 
   - state file has sensitive data in plain text
+  - Performance it will take much time for large infrastructure
 - API as code 
 - use case of null resource 
 - what are different data types in terraform 
@@ -178,6 +179,7 @@
     - dose default storage class has policies like 
   - eksctl
   - which iam roles are required to run eks cluster 
+    - AmazonEKSClusterPolicy, AmazonEKSWorkerNodePolicy, AmazonEC2ContainerRegistryReadOnly, AmazonEKS_CNI_Policy 
   - Default network plugin in eks is "VPC CNI"
   - what are differnet options of network plugin for eks 
 - Lemda ( max run time 15 min ) 
@@ -192,7 +194,8 @@
 - route 53 
   - hosted zone 
 - what are launch templets in aws ( eks, ecs )
-- what is a disadvantage of cloud computing 
+- what is a disadvantage of cloud computing
+  - outage, dr, network-security, data privecy 
 - What is the advantage of cloud computing 
 - ECS
   - cluster 
@@ -232,8 +235,8 @@
 ## Git GitHub
 - what is pull request 
 - git pull and fetch 
-- git clone 
 - git rebase and merge 
+- git clone 
 
 
 ## Docker
@@ -248,22 +251,30 @@
 - different types of storage drivers 
 - what are the majour feature of docker
 - what is disadvantage of docker
+  - Compatibility Issues
+  - storage management
+  - performance tuning
 
 
 ## CICD 
 - Jenkins
   - what is declarative pipeline 
+    - Scripted pipelines are based on Groovy scripting and provide more flexibility, while declarative pipelines offer a more structured and simpler syntax.
   - how to add agents in Jenkins 
   - what is Jenkins shared library 
   - how to run parallel jobs in Jenkins 
   - how to store sensitive information in Jenkins 
+  - Jenkins Blue Ocean
 - Azure Devops
   - how to add agents in Azure DevOps 
   - deployment groups in azure devops 
+  - what is deployment groups
   - azure artifacts 
 - ArgoCD 
   - you have to create an app where provide URL/path of the manifest 
 
+
+- https://automatenow.io/jenkins-blue-ocean-deep-dive/#:~:text=Blue%20Ocean%20is%20a%20transformative,with%20their%20pipelines%20and%20projects.
 
 ## Shell Scripting Linux 
 - sed command 
