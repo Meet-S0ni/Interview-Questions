@@ -48,7 +48,7 @@
 - default port of k8s 6443 
 - network policy in Kubernetes 
   - ingress and egress 
-  - specify 
+  - specify podSelector, from: namespaceSelector
 - shield secrets 
 - request limit 
 - max surge 
@@ -56,6 +56,8 @@
 - current version: 1.29
 - latest version: 1.30
 - what are the majour feature of kubernetes
+- nodeport range
+- services: ClusterIP, NodePort, LoadBalancer, ExternalName, Headless
 
 
 ## Terraform
@@ -133,7 +135,7 @@
   - terraform workspace select <workspace-name>
 
 
-
+- https://chatgpt.com/share/2997c2b3-2804-4fff-88ab-cb71f70be771
 - https://developer.hashicorp.com/terraform/tutorials/state/resource-drift
 - https://www.youtube.com/watch?v=t9bHZMFxQYY&ab_channel=LogicOpsLab
 
@@ -141,10 +143,14 @@
 ## AWS Services 
 - Ec2
   - default storage disk 
+    - EBS: gp2, gp3 
   - can we increase 
+    - external without restart
+    - instance with restart
 - VPC
   - peering
   - multi-account access 
+    - trusted policy
 - subnets
   - privet and public subnets 
 - IAM
@@ -241,6 +247,7 @@
 - different types of networks 
 - different types of storage drivers 
 - what are the majour feature of docker
+- what is disadvantage of docker
 
 
 ## CICD 
@@ -267,6 +274,13 @@
   - A, CNAME, MX, PTR
 - what is TCP, UDP difference
 - OSI model
+  - Layer 1: Physical – Physical medium, raw bit transmission
+  - Layer 2: Data Link – Node-to-node data transfer, error detection/correction
+  - Layer 3: Network – Routing, logical addressing, packet forwarding
+  - Layer 4: Transport – End-to-end communication, reliability, flow control
+  - Layer 5: Session – Session management, establishment, maintenance, termination
+  - Layer 6: Presentation – Data translation, encryption/decryption, compression
+  - Layer 7: Application – Network services to applications, high-level protocols
 - special permissions: sticky bit
 - what is umask
 - what is daemon, difference daemon and process 
@@ -280,6 +294,7 @@
 - awk command
 - netstat
 - protocoals
+  - ping - icmp
 
 ## Ansible
 - what is default path for hosts 
