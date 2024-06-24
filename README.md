@@ -311,7 +311,8 @@
 - what is default path for hosts 
 - how to check host is accessible or not 
 - ansible facts 
-- 
+- ansible roles
+  - Ansible Roles are a way to organize tasks and encapsulate automation logic into reusable units. They include tasks, handlers, variables, and other necessary files.
 
 
 ## Prometheus, Grafana, loki, elk stack 
