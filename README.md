@@ -146,8 +146,7 @@
   - default storage disk 
     - EBS: gp2, gp3 
   - can we increase 
-    - external without restart
-    - instance with restart
+    - yes without restart
 - VPC
   - peering
   - multi-account access 
